@@ -48,6 +48,11 @@ All colors MUST be HSL.
     --shadow-card: 0 8px 32px hsl(220 27% 8% / 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
+    /* Animations */
+    --shimmer: shimmer 2s infinite;
+    --float: float 3s ease-in-out infinite;
+    --glow-pulse: glow-pulse 2s ease-in-out infinite;
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;

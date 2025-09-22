@@ -1,6 +1,9 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Header from "@/components/Header";
+import SplashScreen from "@/components/SplashScreen";
 import { 
   Users, 
   Lightbulb, 
@@ -17,14 +20,47 @@ import {
   Target,
   Award,
   Users2,
-  Sparkles
+  Sparkles,
+  ArrowRight,
+  ChevronDown
 } from "lucide-react";
 
 const Index = () => {
+  const [showSplash, setShowSplash] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (!showSplash) {
+      setTimeout(() => setIsVisible(true), 100);
+    }
+  }, [showSplash]);
+
+  if (showSplash) {
+    return <SplashScreen onComplete={() => setShowSplash(false)} />;
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-hero">
+    <div className={`min-h-screen bg-gradient-hero transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <Header />
+      
       {/* Hero Section */}
-      <section className="relative px-6 py-24 text-center overflow-hidden">
+      <section id="home" className="relative px-6 py-32 text-center overflow-hidden min-h-screen flex items-center">
+        {/* Floating elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-primary/20 rounded-full animate-float"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${3 + Math.random() * 2}s`,
+              }}
+            />
+          ))}
+        </div>
+        
         <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
         <div className="relative max-w-6xl mx-auto animate-fade-in">
           <div className="mb-8">
@@ -49,15 +85,24 @@ const Index = () => {
             </p>
           </div>
 
-          <Button variant="hero" size="lg" className="text-lg px-12 py-6 animate-glow">
-            <Users className="mr-2 h-5 w-5" />
-            Join Our Circle
-          </Button>
+          <div className="space-y-4">
+            <Button variant="hero" size="lg" className="text-lg px-12 py-6 animate-glow group">
+              <Users className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+              Join Our Circle
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
+            
+            {/* Scroll indicator */}
+            <div className="flex flex-col items-center mt-16 animate-bounce-slow">
+              <p className="text-sm text-muted-foreground mb-2">Discover More</p>
+              <ChevronDown className="h-6 w-6 text-primary" />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="px-6 py-20 bg-background/50 backdrop-blur-sm">
+      <section id="about" className="px-6 py-20 bg-background/50 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6">What is Halls of Achiever?</h2>
@@ -168,7 +213,7 @@ const Index = () => {
       </section>
 
       {/* Community Guidelines */}
-      <section className="px-6 py-20 bg-background/50 backdrop-blur-sm">
+      <section id="community" className="px-6 py-20 bg-background/50 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6">Community Guidelines</h2>
@@ -318,7 +363,7 @@ const Index = () => {
       </section>
 
       {/* Community Values */}
-      <section className="px-6 py-20 bg-background/50 backdrop-blur-sm">
+      <section id="values" className="px-6 py-20 bg-background/50 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6">Community Values</h2>
@@ -372,27 +417,48 @@ const Index = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="px-6 py-24 bg-gradient-hero relative overflow-hidden">
+      <section id="join" className="px-6 py-24 bg-gradient-hero relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(10)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-3 h-3 bg-primary/20 rounded-full animate-float"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 2}s`,
+                animationDuration: `${4 + Math.random() * 2}s`,
+              }}
+            />
+          ))}
+        </div>
+        
         <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
         <div className="relative max-w-4xl mx-auto text-center">
-          <Rocket className="h-16 w-16 text-primary mx-auto mb-8 animate-bounce" />
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Join the Movement?</h2>
-          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+          <div className="mb-8 relative">
+            <Rocket className="h-16 w-16 text-primary mx-auto mb-8 animate-float" />
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-primary/10 rounded-full animate-ping"></div>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">Ready to Join the Movement?</h2>
+          <p className="text-xl text-muted-foreground mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <strong>Halls of Achiever</strong> isn't just another student group - it's your gateway to meaningful 
             connections, real opportunities, and a supportive environment where ambitious minds meet and future leaders are born.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button variant="cta" size="lg" className="text-lg px-12 py-6">
-              <Users className="mr-2 h-5 w-5" />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <Button variant="hero" size="lg" className="text-lg px-12 py-6 animate-glow group">
+              <Users className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
               Join Our Circle Now
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
-            <Button variant="outline-primary" size="lg" className="text-lg px-8 py-6">
+            <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-primary/50 text-primary hover:bg-primary/10">
               Learn More
             </Button>
           </div>
 
-          <p className="text-sm text-muted-foreground italic">
+          <p className="text-sm text-muted-foreground italic animate-fade-in" style={{ animationDelay: "0.6s" }}>
             Where ambitious minds meet, innovative ideas flourish, and future leaders are born.
           </p>
         </div>
