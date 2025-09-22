@@ -60,12 +60,14 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm">
-              Login
-            </Button>
-            <Button variant="default" size="sm" className="animate-glow">
+            <Button 
+              variant="default" 
+              size="sm" 
+              className="animate-glow"
+              onClick={() => window.open('https://t.me/+W8dAXP5j8nc0ODE1', '_blank')}
+            >
               <Users className="mr-2 h-4 w-4" />
-              Join Now
+              Join Telegram
             </Button>
           </div>
 
@@ -97,12 +99,14 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4 space-y-3">
-                <Button variant="outline" size="sm" className="w-full">
-                  Login
-                </Button>
-                <Button variant="default" size="sm" className="w-full">
+                <Button 
+                  variant="default" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={() => window.open('https://t.me/+W8dAXP5j8nc0ODE1', '_blank')}
+                >
                   <Users className="mr-2 h-4 w-4" />
-                  Join Now
+                  Join Telegram
                 </Button>
               </div>
             </nav>

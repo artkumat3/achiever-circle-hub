@@ -86,7 +86,12 @@ const Index = () => {
           </div>
 
           <div className="space-y-4">
-            <Button variant="hero" size="lg" className="text-lg px-12 py-6 animate-glow group">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="text-lg px-12 py-6 animate-glow group"
+              onClick={() => window.open('https://t.me/+W8dAXP5j8nc0ODE1', '_blank')}
+            >
               <Users className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
               Join Our Circle
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -448,13 +453,15 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <Button variant="hero" size="lg" className="text-lg px-12 py-6 animate-glow group">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="text-lg px-12 py-6 animate-glow group"
+              onClick={() => window.open('https://t.me/+W8dAXP5j8nc0ODE1', '_blank')}
+            >
               <Users className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
               Join Our Circle Now
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-primary/50 text-primary hover:bg-primary/10">
-              Learn More
             </Button>
           </div>
 
