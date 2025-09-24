@@ -45,77 +45,126 @@ const Index = () => {
       
       {/* Hero Section */}
       <section id="home" className="relative px-6 py-32 text-center overflow-hidden min-h-screen flex items-center">
-        {/* Floating elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
+        {/* Advanced Background Effects */}
+        <div className="absolute inset-0">
+          {/* Aurora Background */}
+          <div className="absolute inset-0 bg-gradient-aurora animate-aurora opacity-30"></div>
+          
+          {/* Mesh Pattern */}
+          <div className="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+          
+          {/* Morphing Shapes */}
+          <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 animate-morphing opacity-40 blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-secondary/20 animate-morphing opacity-30 blur-3xl" style={{ animationDelay: "4s" }}></div>
+          
+          {/* Advanced Floating Particles */}
+          {[...Array(30)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-primary/30 rounded-full animate-float"
+              className={`absolute rounded-full animate-particle-float ${
+                i % 3 === 0 ? 'w-2 h-2 bg-primary/40' :
+                i % 3 === 1 ? 'w-1 h-1 bg-primary-glow/60' :
+                'w-3 h-3 bg-primary/20'
+              }`}
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`,
+                animationDelay: `${Math.random() * 8}s`,
+                animationDuration: `${6 + Math.random() * 4}s`,
               }}
             />
           ))}
-          {/* Additional larger floating elements */}
+          
+          {/* Floating Geometric Shapes */}
           {[...Array(8)].map((_, i) => (
             <div
-              key={`large-${i}`}
-              className="absolute w-1 h-8 bg-gradient-to-b from-primary/20 to-transparent rounded-full animate-float"
+              key={`geo-${i}`}
+              className={`absolute opacity-20 animate-tilt ${
+                i % 4 === 0 ? 'w-4 h-4 bg-primary/30 rotate-45' :
+                i % 4 === 1 ? 'w-6 h-1 bg-primary-glow/40' :
+                i % 4 === 2 ? 'w-2 h-8 bg-primary/25' :
+                'w-3 h-3 bg-primary/35 rounded-full'
+              }`}
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 4}s`,
-                animationDuration: `${4 + Math.random() * 3}s`,
+                animationDuration: `${8 + Math.random() * 4}s`,
               }}
             />
           ))}
         </div>
         
-        <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
-        <div className="relative max-w-6xl mx-auto animate-slide-up">
-          <div className="mb-8">
-            <Badge variant="secondary" className="mb-4 px-4 py-2 text-sm font-medium animate-zoom-in" style={{ animationDelay: "0.2s" }}>
-              <Sparkles className="mr-2 h-4 w-4" />
-              Powered by PROCBSE
-            </Badge>
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-primary-glow bg-clip-text text-transparent animate-slide-up" style={{ animationDelay: "0.3s" }}>
-              Halls of Achiever
-            </h1>
-            <p className="text-2xl md:text-3xl text-muted-foreground mb-4 animate-fade-in" style={{ animationDelay: "0.5s" }}>
-              A Circle of Ambitious Students
+        <div className="absolute inset-0 bg-gradient-hero opacity-95"></div>
+        <div className="relative max-w-6xl mx-auto animate-slide-up z-10">
+          <div className="mb-8 relative">
+            {/* Floating Badge */}
+            <div className="relative inline-block animate-zoom-in" style={{ animationDelay: "0.2s" }}>
+              <Badge variant="secondary" className="mb-4 px-6 py-3 text-sm font-medium backdrop-blur-sm bg-card/80 border border-primary/30 shadow-neon hover:shadow-glow transition-all duration-500 hover:scale-110">
+                <Sparkles className="mr-2 h-4 w-4 animate-wave" />
+                Powered by PROCBSE
+              </Badge>
+              <div className="absolute -inset-1 bg-gradient-primary rounded-lg blur opacity-30 animate-pulse-ring"></div>
+            </div>
+            
+            {/* Main Title with Advanced Effects */}
+            <div className="relative mb-6">
+              <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-foreground via-primary via-primary-glow to-foreground bg-clip-text text-transparent animate-slide-up leading-tight" style={{ animationDelay: "0.3s" }}>
+                Halls of Achiever
+              </h1>
+              <div className="absolute inset-0 text-6xl md:text-8xl font-bold bg-gradient-to-r from-primary/20 via-primary-glow/30 to-primary/20 bg-clip-text text-transparent blur-xl animate-glow"></div>
+            </div>
+            {/* Animated Subtitles */}
+            <p className="text-2xl md:text-4xl text-muted-foreground mb-4 animate-fade-in font-light tracking-wide" style={{ animationDelay: "0.5s" }}>
+              A Circle of <span className="text-primary font-semibold">Ambitious Students</span>
             </p>
-            <p className="text-xl text-primary font-semibold mb-12 animate-rotate-in" style={{ animationDelay: "0.7s" }}>
-              Where Knowledge, Skills & Growth Converge
-            </p>
+            <div className="relative">
+              <p className="text-xl md:text-2xl text-primary font-semibold mb-12 animate-rotate-in" style={{ animationDelay: "0.7s" }}>
+                Where Knowledge, Skills & Growth Converge
+              </p>
+              <div className="absolute inset-0 text-xl md:text-2xl font-semibold bg-gradient-to-r from-primary-glow/40 via-primary/50 to-primary-glow/40 bg-clip-text text-transparent blur-sm animate-pulse-ring"></div>
+            </div>
           </div>
           
-          <div className="max-w-3xl mx-auto mb-12 animate-slide-up" style={{ animationDelay: "0.9s" }}>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Join an exclusive community of driven students who are passionate about learning, growing, 
-              and achieving excellence. Connect with like-minded peers, share insights, and build the future together.
-            </p>
+          {/* Enhanced Description */}
+          <div className="max-w-4xl mx-auto mb-16 animate-slide-up" style={{ animationDelay: "0.9s" }}>
+            <div className="relative p-8 rounded-2xl bg-card/30 backdrop-blur-xl border border-primary/20 shadow-floating">
+              <div className="absolute inset-0 bg-gradient-mesh rounded-2xl opacity-30"></div>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed relative z-10">
+                Join an exclusive community of <span className="text-primary font-semibold">driven students</span> who are passionate about learning, growing, 
+                and achieving excellence. Connect with <span className="text-primary-glow font-medium">like-minded peers</span>, share insights, and build the future together.
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4 animate-zoom-in" style={{ animationDelay: "1.1s" }}>
-            <Button 
-              variant="hero" 
-              size="lg" 
-              className="text-lg px-12 py-6 animate-pulse-ring hover:animate-glow group relative overflow-hidden"
-              onClick={() => window.open('https://t.me/+W8dAXP5j8nc0ODE1', '_blank')}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary-glow/30 to-primary/20 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <Users className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300 relative z-10" />
-              <span className="relative z-10">Join Our Circle</span>
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
-            </Button>
+          {/* Advanced CTA Section */}
+          <div className="space-y-8 animate-zoom-in" style={{ animationDelay: "1.1s" }}>
+            <div className="relative group cursor-pointer" onClick={() => window.open('https://t.me/+W8dAXP5j8nc0ODE1', '_blank')}>
+              {/* Glowing Ring Effect */}
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl animate-pulse-ring group-hover:animate-glow"></div>
+              
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="relative text-xl px-16 py-8 rounded-full bg-gradient-to-r from-primary via-primary-glow to-primary hover:from-primary-glow hover:via-primary hover:to-primary-glow transform transition-all duration-500 hover:scale-110 shadow-neon hover:shadow-floating group overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <Users className="mr-3 h-6 w-6 group-hover:scale-125 transition-all duration-300 relative z-10 animate-wave" />
+                <span className="relative z-10 font-bold tracking-wide">Join Our Circle</span>
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 group-hover:scale-125 transition-all duration-300 relative z-10" />
+              </Button>
+            </div>
             
-            {/* Scroll indicator */}
-            <div className="flex flex-col items-center mt-16 animate-bounce-slow cursor-pointer" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>
-              <p className="text-sm text-muted-foreground mb-2 hover:text-primary transition-colors duration-300">Discover More</p>
-              <ChevronDown className="h-6 w-6 text-primary animate-float" />
+            {/* Animated Scroll Indicator */}
+            <div className="flex flex-col items-center mt-20 animate-bounce-slow cursor-pointer group" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>
+              <div className="relative">
+                <p className="text-sm text-muted-foreground mb-4 group-hover:text-primary transition-colors duration-500 font-medium tracking-wider">Discover More</p>
+                <div className="absolute inset-0 blur-sm bg-gradient-to-r from-primary/40 to-primary-glow/40 bg-clip-text text-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">Discover More</div>
+              </div>
+              <div className="relative">
+                <ChevronDown className="h-8 w-8 text-primary animate-float group-hover:scale-125 transition-all duration-300" />
+                <div className="absolute inset-0 h-8 w-8 text-primary-glow animate-pulse-ring opacity-50"></div>
+              </div>
             </div>
           </div>
         </div>

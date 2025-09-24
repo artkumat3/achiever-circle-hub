@@ -63,10 +63,17 @@ export default {
         'gradient-primary': 'var(--gradient-primary)',
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-card': 'var(--gradient-card)',
+        'gradient-mesh': 'var(--gradient-mesh)',
+        'gradient-aurora': 'var(--gradient-aurora)',
+        'gradient-radial': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       boxShadow: {
         'glow': 'var(--shadow-glow)',
         'card': 'var(--shadow-card)',
+        'floating': 'var(--shadow-floating)',
+        'neon': '0 0 20px hsl(var(--primary) / 0.5), 0 0 60px hsl(var(--primary) / 0.3)',
+        'inner-glow': 'inset 0 0 20px hsl(var(--primary) / 0.2)',
       },
       transitionTimingFunction: {
         'smooth': 'var(--transition-smooth)',
@@ -110,8 +117,9 @@ export default {
           "100%": { transform: "translateX(100%)" }
         },
         "float": {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" }
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "33%": { transform: "translateY(-10px) rotate(2deg)" },
+          "66%": { transform: "translateY(-5px) rotate(-1deg)" }
         },
         "glow-pulse": {
           "0%, 100%": { 
@@ -152,6 +160,53 @@ export default {
           "70%": { transform: "scale(1)", boxShadow: "0 0 0 40px hsl(var(--primary) / 0)" },
           "100%": { transform: "scale(0.8)", boxShadow: "0 0 0 0 hsl(var(--primary) / 0)" }
         },
+        "morphing": {
+          "0%, 100%": { borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" },
+          "50%": { borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%" }
+        },
+        "tilt": {
+          "0%, 50%, 100%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(2deg)" },
+          "75%": { transform: "rotate(-2deg)" }
+        },
+        "wave": {
+          "0%": { transform: "rotate(0deg)" },
+          "10%": { transform: "rotate(14deg)" },
+          "20%": { transform: "rotate(-8deg)" },
+          "30%": { transform: "rotate(14deg)" },
+          "40%": { transform: "rotate(-4deg)" },
+          "50%": { transform: "rotate(10deg)" },
+          "60%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(0deg)" }
+        },
+        "aurora": {
+          "0%": { 
+            backgroundPosition: "0% 50%",
+            opacity: "0.8"
+          },
+          "50%": { 
+            backgroundPosition: "100% 50%",
+            opacity: "1"
+          },
+          "100%": { 
+            backgroundPosition: "0% 50%",
+            opacity: "0.8"
+          }
+        },
+        "particle-float": {
+          "0%, 100%": { 
+            transform: "translateY(0px) translateX(0px) scale(1)",
+            opacity: "0.7"
+          },
+          "33%": { 
+            transform: "translateY(-20px) translateX(10px) scale(1.1)",
+            opacity: "1"
+          },
+          "66%": { 
+            transform: "translateY(-10px) translateX(-5px) scale(0.9)",
+            opacity: "0.8"
+          }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -160,7 +215,7 @@ export default {
         "scale-in": "scale-in 0.3s ease-out",
         "glow": "glow-pulse 2s ease-in-out infinite",
         "shimmer": "shimmer 2s infinite",
-        "float": "float 3s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
         "bounce-slow": "bounce-slow 2s ease-in-out infinite",
         "slide-up": "slide-up 0.6s ease-out",
         "slide-in-left": "slide-in-left 0.8s ease-out",
@@ -168,6 +223,11 @@ export default {
         "zoom-in": "zoom-in 0.5s ease-out",
         "rotate-in": "rotate-in 0.6s ease-out",
         "pulse-ring": "pulse-ring 2s infinite",
+        "morphing": "morphing 8s ease-in-out infinite",
+        "tilt": "tilt 4s ease-in-out infinite",
+        "wave": "wave 2.5s ease-in-out",
+        "aurora": "aurora 12s ease-in-out infinite",
+        "particle-float": "particle-float 8s ease-in-out infinite",
       },
     },
   },

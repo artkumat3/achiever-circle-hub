@@ -40,13 +40,16 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Custom design tokens */
+    /* Advanced gradients */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 70%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 27% 8%) 0%, hsl(220 25% 12%) 50%, hsl(217 91% 20%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(220 25% 12%), hsl(220 20% 15%));
-    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.2);
-    --shadow-card: 0 8px 32px hsl(220 27% 8% / 0.3);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --gradient-hero: radial-gradient(ellipse at top, hsl(217 91% 15%) 0%, hsl(220 27% 8%) 50%, hsl(220 25% 4%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 25% 12%) 0%, hsl(220 20% 15%) 50%, hsl(217 91% 8%) 100%);
+    --gradient-mesh: conic-gradient(from 180deg at 50% 50%, hsl(217 91% 60% / 0.1) 0deg, hsl(217 91% 70% / 0.2) 120deg, hsl(220 27% 8% / 0.1) 240deg, hsl(217 91% 60% / 0.1) 360deg);
+    --gradient-aurora: linear-gradient(45deg, hsl(217 91% 60% / 0.3), hsl(280 91% 60% / 0.2), hsl(320 91% 60% / 0.3), hsl(217 91% 60% / 0.3));
+    --shadow-glow: 0 0 60px hsl(217 91% 60% / 0.3), 0 0 120px hsl(217 91% 60% / 0.1);
+    --shadow-card: 0 12px 40px hsl(220 27% 8% / 0.4), 0 4px 16px hsl(217 91% 60% / 0.1);
+    --shadow-floating: 0 20px 60px hsl(220 27% 8% / 0.5), 0 8px 24px hsl(217 91% 60% / 0.2);
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     /* Enhanced animations */
     --shimmer: shimmer 2s infinite;
