@@ -421,6 +421,73 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Meet Our Top Members Section */}
+      <section className="relative py-24 bg-gradient-to-br from-background via-primary/5 to-background overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/5 bg-grid-16" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-glow to-secondary bg-clip-text text-transparent">
+              Meet Our Top 1% Members
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              The driving force behind our community - exceptional individuals who lead by example
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {[
+              { name: "Arvish", role: "Owner of Procbse", icon: "👑" },
+              { name: "Nihal", role: "Admin", icon: "🛡️" },
+              { name: "Dakshita Arora", role: "Highly Active", icon: "⭐" },
+              { name: "baba yoga", role: "Editor", icon: "✍️" },
+              { name: "aryan gupta", role: "Tech Guy", icon: "💻" },
+              { name: "arth ⚡", role: "Trader Bro", icon: "📈" },
+              { name: "boo", role: "Meme Wale Bhai", icon: "😄" },
+              { name: "rAj", role: "Admin", icon: "🛡️" }
+            ].map((member, index) => (
+              <div 
+                key={member.name}
+                className="group relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:bg-card/80 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative text-center">
+                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {member.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground group-hover:text-primary/80 transition-colors duration-300">
+                    {member.role}
+                  </p>
+                </div>
+                
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center animate-fade-in" style={{ animationDelay: "0.8s" }}>
+            <p className="text-lg text-muted-foreground mb-8">
+              Want to join the ranks of our top contributors? Be active, be helpful, be part of the change!
+            </p>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="text-lg px-8 py-6 border-primary/50 text-primary hover:bg-primary/10 animate-glow"
+              onClick={() => window.open('https://t.me/+W8dAXP5j8nc0ODE1', '_blank')}
+            >
+              <Users className="mr-2 h-5 w-5" />
+              Join & Become a Top Member
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section id="join" className="px-6 py-24 bg-gradient-hero relative overflow-hidden">
         {/* Animated background elements */}
